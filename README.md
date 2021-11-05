@@ -1,0 +1,4 @@
+整合laravel8和vue
+包含dcat admin作为后台
+vue使用jwt实现登录认证
+jwt认证使用表是admin_users
