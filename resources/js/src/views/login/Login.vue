@@ -27,6 +27,7 @@ export default {
       Api.login(e).then((res) => {
         if (res.code == 200) {
           this.$store.dispatch("user/setToken", res.data.access_token);
+          this.$store.dispatch("dd/setDd");
           this.$router.replace({
             name: "Home",
           });

@@ -69,15 +69,17 @@ service.interceptors.response.use(
           error.message = error.response.data.error
           break
         case 401:
-          Dialog.alert({
-            title: '请您重新登录',
-            message: '登录超时',
-          }).then(() => {
-            store.dispatch("user/removeToken");
-            router.replace({
-              name: "Login",
+          if (router.currentRoute.name != 'Login') {
+            Dialog.alert({
+              title: '请您重新登录',
+              message: '登录超时',
+            }).then(() => {
+              router.replace({
+                name: "Login",
+              });
             });
-          });
+          }
+          store.dispatch("user/removeToken");
           return
         case 403:
           error.message = '拒绝访问'
