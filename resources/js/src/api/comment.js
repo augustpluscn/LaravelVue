@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import http from './http'
+import http from '@/utils/http'
 
 export default {
   dd: () => {
@@ -7,11 +7,5 @@ export default {
   },
   sysset: () => {
     return http.get('sysset', {}, true)
-  },
-  login: (obj) => {
-    return http.post('auth/login', obj)
-  },
-  logout: () => {
-    return http.post('auth/logout', {}, true)
   }
 }

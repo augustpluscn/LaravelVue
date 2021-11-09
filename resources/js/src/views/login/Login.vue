@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Api from "../../utils/api.js";
+import Api from "@/api/login.js";
 export default {
   components: {},
   data() {

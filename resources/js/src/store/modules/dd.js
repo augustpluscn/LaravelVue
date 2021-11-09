@@ -1,4 +1,4 @@
-import Api from '@/utils/api.js'
+import Api from '@/api/comment.js'
 const state = {
   dd: {},
   sysSet: {}
