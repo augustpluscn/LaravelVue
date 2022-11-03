@@ -52,6 +52,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "post-install-cmd": [
+            "@php -r \"copy('app/Admin/CustomFrame/Grid/Tools/CreateButton.php', 'vendor/dcat/laravel-admin/src/Grid/Tools/CreateButton.php');\""
         ]
     },
     "extra": {

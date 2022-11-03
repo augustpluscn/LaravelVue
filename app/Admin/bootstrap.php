@@ -56,13 +56,13 @@ config([
 
 //默认Grid设置
 Grid::resolving(function (Grid $grid) {
-    // $grid->setActionClass(Grid\Displayers\Actions::class);
+    $grid->setActionClass(Grid\Displayers\Actions::class);
     $grid->model()->orderby('id', 'desc');
-    // $grid->disableViewButton();
-    // $grid->showQuickEditButton();
-    // $grid->enableDialogCreate();
-    // $grid->disableEditButton();
-    // $grid->setDialogFormDimensions('70%', '90%');
+    $grid->disableViewButton();
+    $grid->showQuickEditButton();
+    $grid->enableDialogCreate();
+    $grid->disableEditButton();
+    $grid->setDialogFormDimensions('70%', '90%');
 });
 
 // Form\Field::macro('', function () {
@@ -70,15 +70,17 @@ Grid::resolving(function (Grid $grid) {
 // });
 
 //双击编辑
-// $script = <<<JS
-//       $("#grid-table > tbody > tr").on("dblclick",function() {
-//          var obj = $(this).find(".feather.icon-edit");
-//          if (obj.length == 1) {
-//              obj.trigger("click")
-//          }
-//       })
-// JS;
-// Admin::script($script);
+$script = <<<JS
+      $("#grid-table > tbody > tr").on("dblclick",function() {
+         var obj = $(this).find(".feather.icon-edit");
+         if (obj.length == 1) {
+             obj.trigger("click")
+         }
+      })
+      //添加阴影遮罩
+      Dcat.ready(function () { layer.config({  shade: 0.5}); });
+JS;
+Admin::script($script);
 
 //默认样式更改
 app('view')->prependNamespace('admin', resource_path('views/vendor/laravel-admin'));
