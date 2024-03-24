@@ -23,10 +23,11 @@ add('writable_dirs', []);
 set('keep_releases', 3);
 
 // Hosts
-host('47.103.63.224')
-// ->stage('prod')
-->user('root')
-    ->identityFile('/Users/august/OneDrive/sshkey/redwoodmfq.pem')
+host('prod')
+    ->set('hostname', '47.100.29.228')
+    ->set('remote_user', 'root')
+    ->set('port', 50022)
+    ->set('identity_file', '/home/august/deploy/sshkey/sunevapali')
     ->set('deploy_path', '/www/wwwroot/{{application}}');
 
 // Tasks
